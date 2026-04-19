@@ -26,7 +26,7 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Episode card – horizontal layout (image left, text right) */
+/* Episode card – vertical layout (image top, text bottom) */
 .episode-card {
   background: white;
   border-radius: 1rem;
@@ -34,7 +34,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
-  flex-direction: row;  /* image left, text right */
+  flex-direction: column;  /* image above text */
   width: 100%;
 }
 
@@ -43,14 +43,15 @@ body {
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* Image container – fixed width on the left */
+/* Image container – full width at top */
 .episode-image {
-  flex: 0 0 120px;      /* slightly smaller for 4 columns */
+  width: 100%;
   background: #eef2f5;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  aspect-ratio: 16 / 9;  /* consistent height */
 }
 
 .episode-image img {
@@ -61,22 +62,22 @@ body {
 }
 
 .no-image {
-  padding: 1rem;
+  padding: 2rem;
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #6c757d;
 }
 
-/* Text content – takes remaining space */
+/* Text content – below the image */
 .episode-card h2 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   margin: 0.75rem 0.75rem 0.25rem 0.75rem;
   color: #0b3b5f;
 }
 
 .episode-code {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: #2c7da0;
   margin: 0 0.75rem 0.5rem 0.75rem;
@@ -85,10 +86,9 @@ body {
 
 .episode-summary {
   padding: 0 0.75rem 0.75rem 0.75rem;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: #2d3e50;
   flex: 1;
-  line-height: 1.4;
 }
 
 .episode-summary p {
@@ -109,20 +109,10 @@ body {
   }
 }
 
-/* Responsive: 1 column for phones, and cards stack vertically */
+/* Responsive: 1 column for phones */
 @media (max-width: 550px) {
   .episodes-container {
     grid-template-columns: 1fr;
-  }
-  .episode-card {
-    flex-direction: column;
-  }
-  .episode-image {
-    flex: 0 0 auto;
-    height: 180px;
-  }
-  .episode-image img {
-    height: auto;
   }
 }
 
